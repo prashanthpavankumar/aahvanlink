@@ -1,65 +1,60 @@
-import Image from "next/image";
+import Navbar from "@/components/ui/navbar";
+import IntroAnimation from "@/components/ui/scroll-morph-hero";
+import FeaturesSection from "@/components/ui/features-section";
+import HowItWorksSection from "@/components/ui/how-it-works";
+import TestimonialsSection from "@/components/ui/testimonials-section";
+import PricingSection from "@/components/ui/pricing-section";
+import Footer from "@/components/ui/footer";
+import { SparksCarousel } from "@/components/ui/sparks-carousel";
+
+const SERVICES_DATA = [
+  { id: 1, title: "Wedding Invitation", imageSrc: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500&q=80" },
+  { id: 2, title: "Birthday Invitation", imageSrc: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500&q=80" },
+  { id: 3, title: "Engagement Invitation", imageSrc: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=500&q=80" },
+  { id: 4, title: "Housewarming Ceremony", imageSrc: "https://images.unsplash.com/photo-1527359443443-84a18acc616c?w=500&q=80" },
+  { id: 5, title: "Baby Shower", imageSrc: "https://images.unsplash.com/photo-1519741497674-611481863552?w=500&q=80" },
+  { id: 6, title: "Naming Ceremony", imageSrc: "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=500&q=80" },
+  { id: 7, title: "Graduation Party", imageSrc: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&q=80" },
+  { id: 8, title: "Corporate Events", imageSrc: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&q=80" },
+  { id: 9, title: "Anniversary Celebration", imageSrc: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&q=80" },
+  { id: 10, title: "Farewell & Retirement", imageSrc: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=500&q=80" },
+  { id: 11, title: "Religious Ceremonies", imageSrc: "https://images.unsplash.com/photo-1524824267900-2b6ed433ce32?w=500&q=80" },
+  { id: 12, title: "Custom / Any Event", imageSrc: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&q=80" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Navbar />
+
+      {/* Hero Section */}
+      <section id="home" className="relative w-full" style={{ height: "100svh" }}>
+        <IntroAnimation />
+
+        {/* Bottom hero copy overlay */}
+        <div className="absolute bottom-8 left-0 right-0 z-20 text-center pointer-events-none">
+          <p className="text-xs font-bold tracking-[0.3em] uppercase text-gray-400">
+            DISCOVER MORE ↓
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Page Sections */}
+      <FeaturesSection />
+      
+      {/* Services Marquee */}
+      <section id="gallery">
+        <SparksCarousel 
+            title="Elegant Ceremonies" 
+            subtitle="Explore our handcrafted digital invitations for every milestone. Tailored to captivate your guests and honor your traditions."
+            items={SERVICES_DATA}
+        />
+      </section>
+
+      <HowItWorksSection />
+      <TestimonialsSection />
+      <PricingSection />
+      <Footer />
+    </>
   );
 }
