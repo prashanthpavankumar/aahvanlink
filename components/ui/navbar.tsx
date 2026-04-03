@@ -38,7 +38,7 @@ export default function Navbar() {
         <a href="#home" className="flex items-center group">
           <div className="relative w-48 md:w-64 h-16 flex items-center justify-start transition-transform duration-200 group-hover:scale-105">
             <img 
-              src="/logos/logo.png" 
+              src="/logo.png" 
               alt="Aahvan Link" 
               className="w-full h-full object-contain object-left"
               onError={(e) => {
