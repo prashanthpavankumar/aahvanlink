@@ -16,10 +16,10 @@ interface FlipCardProps {
 }
 
 // --- FlipCard Component ---
-const IMG_WIDTH = 60;
+const IMG_WIDTH = 68;
 const IMG_HEIGHT = 85;
 
-const MOBILE_IMG_WIDTH = 45;
+const MOBILE_IMG_WIDTH = 52;
 const MOBILE_IMG_HEIGHT = 65;
 
 function FlipCard({ src, index, phase, target }: FlipCardProps) {
@@ -75,43 +75,31 @@ function FlipCard({ src, index, phase, target }: FlipCardProps) {
 
         {/* Back Face */}
         <div
-          className="absolute inset-0 h-full w-full overflow-hidden rounded-xl shadow-lg flex flex-col items-center justify-center p-4"
+          className="absolute inset-0 h-full w-full overflow-hidden rounded-xl shadow-lg flex flex-col items-center justify-center p-4 border border-rose-200"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            background: "linear-gradient(135deg, #dc2626, #f59e0b)",
+            background: "linear-gradient(135deg, #dc2626, #f59e0b, #fcd34d)",
           }}
         >
-          <p className="text-[10px] font-serif text-white">Invite</p>
+          <p className="text-[10px] font-bold text-white uppercase tracking-tighter">View Site</p>
+          <div className="mt-1 w-4 h-[1px] bg-white/50" />
         </div>
       </motion.div>
     </motion.div>
   );
 }
 
-// Event-themed Unsplash Images (weddings, birthdays, celebrations)
-const IMAGES = [
-  "https://images.unsplash.com/photo-1519741497674-611481863552?w=300&q=80",
-  "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=300&q=80",
-  "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=300&q=80",
-  "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=300&q=80",
-  "https://images.unsplash.com/photo-1478145787956-f608bc674f71?w=300&q=80",
-  "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=300&q=80",
-  "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&q=80",
-  "https://images.unsplash.com/photo-1521478413493-86954f72f63c?w=300&q=80",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80",
-  "https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=300&q=80",
-  "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=300&q=80",
-  "https://images.unsplash.com/photo-1561089489-f13d5e730d72?w=300&q=80",
-  "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=300&q=80",
-  "https://images.unsplash.com/photo-1524824267900-2b6ed433ce32?w=300&q=80",
-  "https://images.unsplash.com/photo-1496337589254-7e19d01cec44?w=300&q=80",
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&q=80",
-  "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=300&q=80",
-  "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=300&q=80",
-  "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&q=80",
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=300&q=80",
+// Mockups of digital invitation websites cycling through generated categories
+const INVITATION_FILES = [
+  "/invitations/invitation_wedding.png",
+  "/invitations/invitation_birthday.png",
+  "/invitations/invitation_babyshower.png",
+  "/invitations/invitation_anniversary.png",
+  "/invitations/invitation_engagement.png"
 ];
+
+const IMAGES = Array.from({ length: 20 }, (_, i) => INVITATION_FILES[i % INVITATION_FILES.length]);
 
 const BG_IMAGES = [
   "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=1200&q=80",

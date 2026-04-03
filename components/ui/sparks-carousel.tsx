@@ -57,7 +57,7 @@ export const SparksCarousel = React.forwardRef<
               key={`${item.id}-${index}`}
               className="w-[280px] sm:w-[320px] rounded-2xl overflow-hidden border border-gray-100 bg-white group/item hover:border-red-200 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[5/4] overflow-hidden">
                 <img
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110"
